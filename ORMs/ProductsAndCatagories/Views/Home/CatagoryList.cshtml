@@ -1,0 +1,31 @@
+<div class = "container">
+    <h4 class="text-center"> <a href="../products">Products</a> | Catagories</h4>
+    @using CatagoryModel.Models
+    @model Catagory
+    <div class="row">
+        <div class="col w-50 mt-3 pr-3">
+            <h4 class="text-center">New Catagory</h4>
+            <form asp-action="CreateCatagory" asp-controller="HomeController" method="POST">
+                <span asp-validation-for="CatagoryName"></span>
+                <div class="form-group form-inline row">
+                    <label class="text-left col" asp-for="CatagoryName"></label>
+                    <input class="col" asp-for="CatagoryName">
+                </div>
+                <div class="form-group form-inline row">
+                    <p class="col"></p>
+                    <div class="col">         
+                        <button type="submit">Add Catagory</button>
+                    </div>  
+                </div>
+            </form>
+            
+        </div>
+        <div class="col w-50 mx-2 border-left border-dark mt-3 pl-2">
+            <h4 class="text-center">Existing Catagories:</h4>
+            @foreach (var catagory in ViewBag.Catagories)
+            {
+                <p><a href="/catagories/@catagory.CatagoryID">@catagory.CatagoryName</a></p>
+            }
+        </div>
+    </div>
+</div>

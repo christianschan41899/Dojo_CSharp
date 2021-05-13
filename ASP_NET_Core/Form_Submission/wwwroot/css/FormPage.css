@@ -1,0 +1,12 @@
+*{
+    margin: 0px;
+    }
+
+    .form-container{
+        margin: 10px;
+        width: 300px;
+    }
+    .input-flex{
+        display: flex;
+        justify-content: space-between;
+    }

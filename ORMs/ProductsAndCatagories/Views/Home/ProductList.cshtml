@@ -1,0 +1,43 @@
+<div class = "container">
+    <h4 class="text-center"> Products | <a href="../catagories">Catagories</a></h4>
+    @using ProductModel.Models
+    @model Product
+    <div class="row">
+        <div class="col w-50 mt-3 pr-3">
+            <h4 class="text-center">New Product</h4>
+            <form asp-action="CreateProduct" asp-controller="HomeController" method="POST">
+                <div class="form-group form-inline row">
+                    <span asp-validation-for="ProductName"></span>
+                    <label class="text-left col" asp-for="ProductName"></label>
+                    <input class="col" asp-for="ProductName">
+                </div>
+
+                <div class="form-group form-inline row">
+                    <span asp-validation-for="Description"></span>
+                    <label class="text-left col" asp-for="Description"></label>
+                    <textarea class="col" rows="5" asp-for="Description"></textarea>
+                </div>
+
+                <div class="form-group form-inline row">
+                    <span asp-validation-for="Price"></span>
+                    <label class="text-left col" asp-for="Price"></label>           
+                    <input class="col" asp-for="Price">
+                </div>
+
+                <div class="form-group form-inline row">
+                    <p class="col"></p>
+                    <div class="col">         
+                        <button type="submit">Add Product</button>
+                    </div>  
+                </div>
+            </form>
+        </div>
+        <div class="col w-50 mx-2 border-left border-dark mt-3 pl-2">
+            <h4 class="text-center">Existing Products:</h4>
+            @foreach (var product in ViewBag.Products)
+            {
+                <p><a href="/products/@product.ProductID">@product.ProductName</a></p>
+            }
+        </div>
+    </div>
+</div>

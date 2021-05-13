@@ -1,0 +1,21 @@
+<div>
+    @using WeddingModel.Models
+    @model Wedding
+    <div class = "row">
+        <div class = "col">
+            <h3>@Model.Wedder1's And @Model.Wedder2's Wedding </h3>
+        </div>
+        <div class = "col">
+            <a href="../dashboard">Dashboard</a>
+            <a href="../logout">Log Out</a>
+        </div>
+    </div>
+    <br/>
+    <p>Date: @Model.Date.ToString("MMM d yyyy")</p>
+    <br/>
+    <p>Guests:</p>
+    @foreach (var guest in Model.Attendees)
+    {
+        <p>@guest.Attendee.FirstName @guest.Attendee.LastName</p>
+    }
+</div>

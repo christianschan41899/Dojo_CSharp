@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/css/Dojodachi.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "flex">
+                <span>Fullness: @ViewBag.Fullness</span>
+                <span>Happiness: @ViewBag.Happiness</span>
+                <span>Meals: @ViewBag.Meals</span>
+                <span>Energy: @ViewBag.Energy</span>
+            </div>
+            <div class = "dojodachi">
+                <img src="~/images/agumon.png" alt="Agumon">
+                <p>@ViewBag.Message</p>
+            </div>
+            <div>
+                @{
+                    if(ViewBag.Fullness <= 0 || ViewBag.Happiness <= 0 || (ViewBag.Fullness >= 100 && ViewBag.Happiness >= 100 && ViewBag.Energy >= 100))
+                    {
+                        <partial name="PartialGameOver" />
+                    }
+                    else
+                    {
+                        <partial name="PartialChoices" />
+                    }
+                }
+            </div>
+        </div>
+    </body>
+</html>

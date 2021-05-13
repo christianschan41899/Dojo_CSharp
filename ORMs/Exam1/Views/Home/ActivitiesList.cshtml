@@ -1,0 +1,53 @@
+<div class = "container">
+    <div class = "row border-bottom border-dark mb-3">
+        <h3 class = "col">Dojo Activity Center</h3>
+        <div class = "col-3 d-flex justify-content-between ">
+            <p>Welcome, @ViewBag.name</p>
+            <a class = "col text-right" href="../logout">Log Out</a>
+        </div>
+    </div>
+    <table class = "table table-striped">
+        <thead class = "table-active">
+            <tr>
+                <th>Activity</th>
+                <th>Date and Time</th>
+                <th>Duration</th>
+                <th>Event Coordinator</th>
+                <th>No. of Participants</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @using ActModel.Models
+            @model List<Act>
+            @{
+                foreach(var act in Model)
+                {
+                    <tr>
+                        <td><a href="/activities/@act.ActID">@act.Title</a></td>
+                        <td>@act.Date.ToString("M/d") @@ @act.Time</td>
+                        <td>@act.Duration @act.DurationUnit</td>
+                        <td>@act.Creator.Name</td>
+                        <td>@act.Attendees.Count</td>
+                        <td>
+                        @if(act.UserID == ViewBag.uid)
+                        {
+                            <a href="../activities/@act.ActID/delete">Delete</a>
+                        }
+                        else if(act.Attendees.Any(alist => (alist.UserID == ViewBag.uid && alist.ActID == act.ActID)))
+                        {
+                            <a href="../activities/@act.ActID/leave">Leave</a>
+                        }
+                        else
+                        {
+                            <a href="../activities/@act.ActID/join">Join</a>
+                        }</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class = "d-flex justify-content-end">
+        <a class = "btn btn-secondary" href="../new">Add new Activity</a>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class = "container">
+    <div class = "row">
+        <h3 class = "col">Welcome to the Wedding Planner</h3>
+        <a class = "col text-right" href="../logout">Log Out</a>
+    </div>
+    <table class = "table table-striped">
+        <thead class = "table-active">
+            <tr>
+                <th>Wedding</th>
+                <th>Date</th>
+                <th>Guests</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @using WeddingModel.Models
+            @model List<Wedding>
+            @{
+                foreach(var wedding in Model)
+                {
+                    <tr>
+                        <td><a href="/weddings/@wedding.WeddingID">@wedding.Wedder1 & @wedding.Wedder2</a></td>
+                        <td>@wedding.Date.ToString("MMM d yyyy")</td>
+                        <td>@wedding.Attendees.Count</td>
+                        <td>
+                        @if(wedding.UserID == ViewBag.uid)
+                        {
+                            <form asp-controller="Home" asp-action="DeleteWedding" asp-route-weddingid="@wedding.WeddingID" method="POST">
+                                <button class="btn btn-outline-danger" type="submit">Delete</button>
+                            </form>
+                        }
+                        else if(wedding.Attendees.Any(wlist => (wlist.UserID == ViewBag.uid && wlist.WeddingID == wedding.WeddingID)))
+                        {
+                            <form asp-controller="Home" asp-action="UnRSVPWedding" asp-route-weddingid="@wedding.WeddingID" method="POST">
+                                <button class="btn btn-outline-info" type="submit">Un-RSVP</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form asp-controller="Home" asp-action="RSVPWedding" asp-route-weddingid="@wedding.WeddingID" method="POST">
+                                <button class="btn btn-outline-primary" type="submit">RSVP</button>
+                            </form>
+                        }</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class = "d-flex justify-content-end">
+        <a class = "btn" href="../wedding/new">New Wedding</a>
+    </div>
+</div>

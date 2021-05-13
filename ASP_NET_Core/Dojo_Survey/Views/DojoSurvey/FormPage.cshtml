@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/css/Styles.css">
+        <title>Document</title>
+    </head>
+    <body>
+        @using UserModel.Models
+        @model User
+        <div class = "form-container">
+            <form asp-action="FormDisplay" asp-controller="DojoSurvey" method='post'>
+
+                <span asp-validation-for="Name"></span>
+                <div class = "input-flex">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name">
+                </div>
+
+                <span asp-validation-for="Location"></span>
+                <div class = "input-flex">
+                <label asp-for="Location">Dojo Location:</label>
+                    <select asp-for="Location">
+                        <option value="Arlington, VA">Arlington, VA</option>
+                        <option value="Bellevue, WA">Bellevue, WA</option>
+                        <option value="Chicago, IL">Chicago, IL</option>
+                    </select>
+                </div>
+
+                <span asp-validation-for="FavLang"></span>
+                <div class = "input-flex">
+                <label asp-for="FavLang"></label>
+                    <select asp-for="FavLang">
+                        <option value="Python">Python</option>
+                        <option value="HTML">HTML</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="C#">C#</option>
+                    </select>
+                </div>
+
+                <span asp-validation-for="Comment"></span>
+                <label asp-for="Comment"></label>
+                <textarea asp-for="Comment" cols="35" rows="5"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

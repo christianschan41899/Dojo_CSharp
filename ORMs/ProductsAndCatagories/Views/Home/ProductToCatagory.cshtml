@@ -1,0 +1,43 @@
+<div class = "container">
+    <h4 class="text-center">@ViewBag.SelectProduct.ProductName</h4>
+    @using ProductCatagory.Models
+    @model ProductsCatagories
+    <div class="row">
+        <div class="col w-50 mx-2 border-right border-dark mt-3 pl-2">
+            <h4 class="text-center">Products:</h4>
+            <ul>
+            @{
+                foreach (var catagory in ViewBag.AssignedCatagories)
+                {
+                    <li>@catagory.CatagoryName</li>    
+                }
+            }
+            </ul>
+        </div>
+        <div class="col w-50 mt-3 pr-3">
+            <h4 class="text-center">New Catagory</h4>
+            <form asp-action="AssignCatagory" asp-controller="HomeController" method="POST" asp-route-id="@ViewBag.SelectProduct.ProductID">
+                <span asp-validation-for="CatagoryID"></span>
+                <div class="form-group form-inline row">
+                    <label class="text-left col" asp-for="CatagoryID"></label>
+                    <select class="col" asp-for="CatagoryID">
+                        @{
+                            foreach (var catagory in ViewBag.UnassignedCatagories)
+                            {
+                            
+                            <option value="@catagory.CatagoryID">@catagory.CatagoryName</option>
+                            
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group form-inline row">
+                    <p class="col"></p>
+                    <div class="col">         
+                        <button type="submit">Add Catagory</button>
+                    </div>  
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

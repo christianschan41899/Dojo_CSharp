@@ -1,0 +1,57 @@
+
+C:\Users\Christian Chan\Documents\Dojo_Assignments\C#\Intro>dotnet --version
+3.1.407
+
+C:\Users\Christian Chan\Documents\Dojo_Assignments\C#\Intro>dotnet new console -o Hello_Core
+
+Welcome to .NET Core 3.1!
+---------------------
+SDK Version: 3.1.407
+
+Telemetry
+---------
+The .NET Core tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.
+
+Read more about .NET Core CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry
+
+----------------
+Explore documentation: https://aka.ms/dotnet-docs
+Report issues and find source on GitHub: https://github.com/dotnet/core
+Find out what's new: https://aka.ms/dotnet-whats-new
+Learn about the installed HTTPS developer cert: https://aka.ms/aspnet-core-https
+Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli-docs
+Write your first app: https://aka.ms/first-net-core-app
+--------------------------------------------------------------------------------------
+Getting ready...
+The template "Console Application" was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on Hello_Core\Hello_Core.csproj...
+  Determining projects to restore...
+  Restored C:\Users\Christian Chan\Documents\Dojo_Assignments\C#\Intro\Hello_Core\Hello_Core.csproj (in 278 ms).
+
+Restore succeeded.
+
+
+C:\Users\Christian Chan\Documents\Dojo_Assignments\C#\Intro>cd Hello_Core
+
+C:\Users\Christian Chan\Documents\Dojo_Assignments\C#\Intro\Hello_Core>dotnet new console
+Creating this template will make changes to existing files:
+  Overwrite   Hello_Core.csproj
+  Overwrite   Program.cs
+
+Rerun the command and pass --force to accept and create.
+
+C:\Users\Christian Chan\Documents\Dojo_Assignments\C#\Intro\Hello_Core>dotnet new console --force
+The template "Console Application" was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on C:\Users\Christian Chan\Documents\Dojo_Assignments\C#\Intro\Hello_Core\Hello_Core.csproj...
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+
+Restore succeeded.
+
+
+C:\Users\Christian Chan\Documents\Dojo_Assignments\C#\Intro\Hello_Core>dotnet run
+Hello World!

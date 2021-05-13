@@ -1,0 +1,6 @@
+appsettings.json
+Project/
+bin/
+obj/
+TestResults/
+wwwroot/Image

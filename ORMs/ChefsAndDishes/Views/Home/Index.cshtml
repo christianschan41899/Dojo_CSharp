@@ -1,0 +1,45 @@
+﻿<div class="container">
+    <div class = "d-flex justify-content-between">
+        <div class = "mx-auto">
+            <h4>Chefs | <a href="/dishes">Dishes</a></h4>
+        </div>
+        <a href="/new">Add a Chef</a>
+    </div>
+    <div class = "border-bottom border-dark w-50">
+        <p> Check out roster of Chefs! </p>
+    </div>
+    @using ChefModel.Models
+    <table class = "table my-2 table-striped">
+        <thead>
+            <tr class = "table-active">
+                <th>Name</th>
+                <th>Age</th>
+                <th># of Dishes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int age = 0; 
+                foreach(Chef chef in ViewBag.Chefs)
+                {
+                    //Calculation for age in years.
+                    //Get Year from today's date and chef's DOB and subtract for approximate age
+                    age = DateTime.Now.Year - chef.DateOfBirth.Year;
+                    //If number of days passed as of now is < days in a year until birthday, subtract age by 1.
+                    if (DateTime.Now.DayOfYear < chef.DateOfBirth.DayOfYear)  
+                    {
+                        age = age - 1;
+                    }
+                    
+                    //For a new chef ChefDishes is not instantiated yet, so instead refernce a new variable
+                    //That get the List's Count value only if it is not null
+                    <tr>
+                        <td>@chef.FirstName @chef.LastName</td>
+                        <td>@age</td>
+                        <td>@chef.ChefDishes.Count</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

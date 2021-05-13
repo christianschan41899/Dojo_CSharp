@@ -1,0 +1,41 @@
+﻿<div class = "container">
+        <div class = "d-flex justify-content-between">
+            <h3 class = "text-center">Register to this Cool Site!</h3>
+            <a href = "/login">Login</a>
+        </div>
+    @using UserModel.Models
+    @model User
+    <form asp-action="CreateUser" asp-controller="HomeController" method="POST">
+
+        <div class = "d-flex justify-content-start">
+            <div class = "form-group col w-25">
+                <span class = "text-danger" asp-validation-for="FirstName"></span>
+                <label asp-for="FirstName"></label>
+                <input class = "form-control" asp-for="FirstName">
+
+                <span class = "text-danger" asp-validation-for="LastName"></span>
+                <label asp-for="LastName"></label>
+                <input class = "form-control" asp-for="LastName">
+
+                <span class = "text-danger" asp-validation-for="Email"></span>
+                <label asp-for="Email"></label>
+                <input class = "form-control" asp-for="Email">
+            </div>
+
+            <div class = "form-group col w-25">
+                <span class = "text-danger" asp-validation-for="Password"></span>
+                <label asp-for="Password"></label>
+                <input class = "form-control" asp-for="Password">
+
+                <span class = "text-danger" asp-validation-for="Confirm"></span>
+                <label asp-for="Confirm"></label>
+                <input class = "form-control" asp-for="Confirm">
+            </div>
+
+            <div class = "form-group col w-25"></div>
+
+        </div>
+        <button type="submit">Sign Up</button>
+        
+    </form>
+</div>

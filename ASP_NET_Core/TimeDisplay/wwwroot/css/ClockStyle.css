@@ -1,0 +1,16 @@
+*{
+    margin: 0px;
+    }
+
+    .main{
+        margin: auto;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .clock{
+        margin: auto;
+        padding: 25px 0px;
+        border: 2px solid black;
+        width: 200px;
+    }

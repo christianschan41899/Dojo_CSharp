@@ -1,0 +1,20 @@
+*{
+    margin: 0px;
+    }
+
+    .form-container{
+        padding: 10px;
+        width: 300px;
+        margin: auto;
+        border: 2px solid black;
+        line-height: 25px;
+    }
+
+    .input-flex{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .comment{
+        overflow: scroll;
+    }

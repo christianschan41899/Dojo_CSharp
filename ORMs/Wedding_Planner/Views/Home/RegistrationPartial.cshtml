@@ -1,0 +1,42 @@
+@using UserModel.Models
+@model User
+<div>
+    <form asp-action="CreateUser" asp-controller="Home" method="POST">
+
+        <span class = "text-danger" asp-validation-for="FirstName"></span>
+        <div class="form-group form-inline row">
+            <label class="text-left col" asp-for="FirstName"></label>
+            <input class = "form-control col" asp-for="FirstName">
+        </div>
+
+        <span class = "text-danger" asp-validation-for="LastName"></span>
+        <div class="form-group form-inline row">
+            <label class="text-left col" asp-for="LastName"></label>
+            <input class = "form-control col" asp-for="LastName">
+        </div>
+
+        <span class = "text-danger" asp-validation-for="Email"></span>
+        <div class="form-group form-inline row">
+            <label class="text-left col" asp-for="Email"></label>
+            <input class = "form-control col" asp-for="Email">
+        </div>
+
+        <span class = "text-danger" asp-validation-for="Password"></span>
+        <div class="form-group form-inline row">
+            <label class="text-left col" asp-for="Password"></label>
+            <input class = "form-control col" asp-for="Password">
+        </div>
+
+        <span class = "text-danger" asp-validation-for="Confirm"></span>
+        <div class="form-group form-inline row">
+            <label class="text-left col" asp-for="Confirm"></label>
+            <input class = "form-control col" asp-for="Confirm">
+        </div>
+        <br/>
+        <div class="form-group form-inline row">
+            <p class = "col"></p>
+            <button class="col" type="submit">Sign Up</button>
+        </div>
+        
+    </form>
+</div>

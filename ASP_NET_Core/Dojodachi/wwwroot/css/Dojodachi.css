@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    }
+
+    .container{
+        margin: auto;
+    }
+
+    .flex{
+        margin: 10px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .dojodachi{
+        margin: auto;
+        width: 500px;
+        padding: 10px;
+        border: 2px solid black;
+        text-align: center;
+    }

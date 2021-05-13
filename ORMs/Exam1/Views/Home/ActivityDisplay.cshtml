@@ -1,0 +1,42 @@
+<div class = "container">
+    <div class = "row border-bottom border-dark mb-3">
+        <h3 class = "col">Dojo Activity Center</h3>
+        <div class = "col-3 d-flex justify-content-between">
+            <a href="../home">Home</a>
+            <a class = "col text-right" href="../logout">Log Out</a>
+        </div>
+    </div>
+    @using ActModel.Models
+    @model Act
+    <div class = "ml-2">
+        <div class = "row">
+            <h3 class="col">@Model.Title</h3>
+            @if(Model.UserID == ViewBag.uid)
+            {
+                <a class="btn col-2 btn-secondary" href="../activities/@Model.ActID/delete">Delete</a>
+            }
+            else if(Model.Attendees.Any(alist => (alist.UserID == ViewBag.uid && alist.ActID == Model.ActID)))
+            {
+                <a class="btn col-2 btn-secondary" href="../activities/@Model.ActID/leave">Leave</a>
+            }
+            else
+            {
+                <a class="btn col-2 btn-secondary" href="../activities/@Model.ActID/join">Join</a>
+            }</td>
+        </div>
+        <div class = "ml-2">
+            <p>Event Coordinator: @Model.Creator.Name</p>
+            <br/>
+            <p>Description:</p>
+            <p class = "ml-2">@Model.Description</p>
+            <br/>
+            <p>Participants:</p>
+                <ul class = "ml-2">
+                    @foreach(var row in Model.Attendees)
+                    {
+                        <li>@row.Attendee.Name</li>
+                    }
+                </ul>
+        </div>
+    </div>
+</div>

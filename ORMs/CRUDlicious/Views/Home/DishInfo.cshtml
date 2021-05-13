@@ -1,0 +1,24 @@
+<div class = "container">
+    @using DishModel.Models
+    @model Dish
+    <a href = "..">Home</a>
+    <div class = "border-bottom border-dark">
+        <h3 class = "text-center">@Model.Name</h3>
+        <h4 class = "text-center">@Model.Chef</h4>
+    </div>
+    <div class = "my-3">
+        <p>@Model.Description</p>
+    </div>
+    <p><b>Calories:</b> @Model.Calories</p>
+    <p><b>Tastiness:</b> @Model.Tastiness</p>
+    <div class = " w-50 mx-auto d-flex align-content-center justify-content-between">
+        @{string deleteAction = $"/delete/{Model.DishId}";}
+        @{string editAction = $"/edit/{Model.DishId}";}
+        <form action="@deleteAction" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        <form action="@editAction">
+            <button type="submit">Edit</button>
+        </form>
+    </div>
+</div>

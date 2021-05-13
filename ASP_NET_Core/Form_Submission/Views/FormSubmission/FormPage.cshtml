@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/css/FormPage.css">
+        <title>Document</title>
+    </head>
+    <body>
+        <h3> Enter your information: </h3>
+        <div class = "form-container">
+            @using UserModel.Models
+            @model User
+
+            <form asp-action="Create" asp-controller="FormSubmission" method="POST">
+                <span asp-validation-for="FirstName"></span>
+                <div class = "input-flex">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName">
+                </div>
+
+                
+                <span asp-validation-for="LastName"></span>
+                <div class = "input-flex">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName">
+                </div>
+
+                <span asp-validation-for="Age"></span>
+                <div class = "input-flex">
+                <label asp-for="Age"></label>
+                <input asp-for="Age">
+                </div>
+
+                
+                <span asp-validation-for="Email"></span>
+                <div class = "input-flex">
+                <label asp-for="Email"></label>
+                <input asp-for="Email">
+                </div>
+
+                <span asp-validation-for="Password"></span>
+                <div class = "input-flex">
+                <label asp-for="Password"></label>
+                <input asp-for="Password">
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

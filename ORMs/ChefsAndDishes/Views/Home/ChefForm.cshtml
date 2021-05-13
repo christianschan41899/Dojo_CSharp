@@ -1,0 +1,29 @@
+<div class = "container">
+    <div class = "mx-auto text-center">
+        <h4>Add a Chef!</h4>
+    </div>
+    <p><a href="..">Home</a></p>
+    @using ChefModel.Models
+    @model Chef
+    <form asp-action="CreateChef" asp-controller="HomeController" method="POST">
+        <div class = "d-flex justify-content-start">
+            <div class = "form-group col w-50">
+                <span asp-validation-for="FirstName"></span>
+                <label asp-for="FirstName"></label>
+                <input class = "form-control w-50" asp-for="FirstName">
+
+                <span asp-validation-for="LastName"></span>
+                <label asp-for="LastName"></label>
+                <input class = "form-control w-50" asp-for="LastName">
+            </div>
+
+            <div class = "form-group col w-50">
+                <span asp-validation-for="DateOfBirth"></span>
+                <label asp-for="DateOfBirth"></label>
+                <input class = "form-control w-50" asp-for="DateOfBirth">
+
+                <button class="my-4" type="submit">Add Chef</button>
+            </div>
+        </div>
+    </form>
+</div>

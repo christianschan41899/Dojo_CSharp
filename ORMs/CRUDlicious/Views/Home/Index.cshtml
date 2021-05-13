@@ -1,0 +1,16 @@
+﻿
+<div class = "container">
+    <h3 class = "text-center">Welcome to CRUDelicious!</h3>
+        <div class = "d-flex justify-content-between">
+            <p>Check out these recent dishes!</p>
+            <a href="/new">Create a new dish</a>
+        </div>
+    @{
+        foreach(var dish in ViewBag.Dishes)
+        {
+            string link = $"/{dish.DishId}";
+            <p><a href=@link>@dish.Name</a> by @dish.Chef</p>
+        }
+    }
+</div>
+

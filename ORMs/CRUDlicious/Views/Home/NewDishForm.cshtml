@@ -1,0 +1,45 @@
+<div class = "container">
+    <h3 class = "text-center">Add a new dish!</h3>
+    <a href = "..">Home</a>
+    @using DishModel.Models
+    @model Dish
+    <form asp-action="CreateDish" asp-controller="HomeController" method="POST">
+
+        <div class = "d-flex justify-content-between">
+            <div class = "form-group col w-25">
+                <span asp-validation-for="Chef"></span>
+                <label asp-for="Chef"></label>
+                <input class = "form-control" asp-for="Chef">
+
+                <span asp-validation-for="Name"></span>
+                <label asp-for="Name"></label>
+                <input class = "form-control" asp-for="Name">
+
+                <span asp-validation-for="Calories"></span>
+                <label asp-for="Calories"></label>
+                <input class = "form-control" asp-for="Calories">
+            </div>
+
+            <div class = "form-group col w-25">
+                <span asp-validation-for="Tastiness"></span>
+                <label asp-for="Tastiness"></label>
+                <select class = "form-control" asp-for="Tastiness">
+                    <option value = "1"> 1 </option>
+                    <option value = "1"> 2 </option>
+                    <option value = "3"> 3 </option>
+                    <option value = "4"> 4 </option>
+                    <option value = "5"> 5 </option>
+                </select>
+            </div>
+
+            <div class = "form-group col w-25">
+                <span asp-validation-for="Description"></span>
+                <label asp-for="Description"></label>
+                <textarea class = "form-control" asp-for="Description" rows="7"></textarea>
+
+                <button class="mt-2" type="submit">Add Dish</button>
+            </div>
+        </div>
+        
+    </form>
+</div>

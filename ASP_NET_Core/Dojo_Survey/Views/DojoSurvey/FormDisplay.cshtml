@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/css/Styles.css">
+        <title>Document</title>
+    </head>
+    <body>
+        @using UserModel.Models
+        @model User
+        <div class = "form-container">
+            <div class = "input-flex">
+                <p>Your Name:</p>
+                <p>@Model.Name</p>
+            </div>
+            <div class = "input-flex">
+                <p>Dojo Location:</p>
+                <p>@Model.Location</p>
+            </div>
+            <div class = "input-flex">
+                <p>Favorite Language:</p>
+                <p>@Model.FavLang</p>
+            </div>
+            <p>Comment (optional):</p>
+            <p class = "comment">@Model.Comment</p>
+            <button><a href='/'>Go Back</a></button>
+        </div>
+    </body>
+</html>
